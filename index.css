@@ -83,6 +83,7 @@ h3{
 h4{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 15px;
+    margin: 0px;
 }
 
 
@@ -90,13 +91,15 @@ p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 14px;
     line-height: 14px;
+    margin-top: 4px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.instructions{
+p.instructions{
     font-size: 12px;
-    line-height: 10px;
+    margin-top: 6px;
+    line-height: 6px;
     margin-left: auto;
     margin-right: auto;
 }
