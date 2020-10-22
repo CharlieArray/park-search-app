@@ -68,11 +68,21 @@ function getResults(selectedStates, quantity){
 }
 
 
+function zoomOut(){
+    $('#submit-button').on('submit', function(event) {
+    var viewportmeta = document.querySelector('meta[name="viewport"]');
+    if (viewportmeta) {
+       viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
+    }
+ });
+}
+
 // Function watches for click of submit button
 function watchForm(){
     console.log('watch form function initiated')
     $('#submit-button').click(event=>{
         event.preventDefault();
+        zoomOut();
         console.log('submit button clicked')
         let quantity = $('.js-query-number').val();
         let selectedStates = $('#states').val();
@@ -81,6 +91,7 @@ function watchForm(){
         getResults(selectedStates,quantity);
     });
 }
+
 
 watchForm();
 
