@@ -5,6 +5,10 @@ body{
     min-width: 300px;
 }
 
+input[type="number"]{
+    font-size: 18;
+}
+
 .fullscreen{
     z-index: 9999;
     width: 100%;
