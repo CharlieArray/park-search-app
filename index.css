@@ -44,7 +44,7 @@ div.container{
 h1{
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 21px;
+    font-size: 24px;
 }
 
 
@@ -54,7 +54,7 @@ h2{
     margin-right: auto;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 
@@ -66,20 +66,20 @@ h3{
 
 h4{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 
 p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 14px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .instructions{
-    font-size: 11px;
+    font-size: 12px;
     line-height: 10px;
     margin-left: auto;
     margin-right: auto;
