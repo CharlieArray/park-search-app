@@ -38,6 +38,10 @@ function displayResults(data,selectedStates){
 
 console.log(`this is output results: ${outputResults}`)
 
+//call Zoom Out function before appending results
+zoomOut();
+
+//append results to HTML
 $('#ol-results').append(`<h3>Results for ${selectedStates}🏕️${data.data.length} total national parks found:</h3>`)
 $('#ol-results').append(outputResults);
 
@@ -67,22 +71,19 @@ function getResults(selectedStates, quantity){
     .catch(console.error)
 }
 
-
+//Zoom Out function to Zoom Out display after submit click. (for mobile responsive design)
 function zoomOut(){
-    $('#submit-button').on('submit', function(event) {
-    var viewportmeta = document.querySelector('meta[name="viewport"]');
-    if (viewportmeta) {
-       viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
-    }
- });
-}
+    $('#submit-button').on('click', function(){
+        $('.container').toggleClass('fullscreen');
+   })
+ }
+
 
 // Function watches for click of submit button
 function watchForm(){
     console.log('watch form function initiated')
     $('#submit-button').click(event=>{
         event.preventDefault();
-        zoomOut();
         console.log('submit button clicked')
         let quantity = $('.js-query-number').val();
         let selectedStates = $('#states').val();
