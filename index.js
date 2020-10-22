@@ -1,5 +1,5 @@
 /*
-Asynchronus Web App that sends an API request for park data from National Park Service. 
+Asynchronous Web App that sends an API request for park data from National Park Service. 
 App allows user to search U.S National Parks by state and returns: 
 park names, description, address, and park website.
 */
@@ -27,7 +27,7 @@ function displayResults(data,selectedStates){
         outputResults.push(
             `<li><h3>⛰️Park Name: <u>${data.data[i].fullName}</u></h3>
             <p>Description: ${data.data[i].description}</p> 
-            <p>🔗 Website: <a href=${data.data[i].url}>${data.data[i].fullName}</a></p>
+            <p>🔗 Website: <a href=${data.data[i].url} target="_blank">${data.data[i].fullName}</a></p>
                 <p>📍 Physical Address: ${data.data[i].addresses[0].line1},
                 ${data.data[i].addresses[0].city},
                 ${data.data[i].addresses[0].stateCode},
