@@ -57,7 +57,7 @@ div.container{
     margin-right: auto;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h4 {
     text-align: center;
     align-content: center;
     margin-left: auto;
@@ -75,6 +75,9 @@ h2{
 
 h3{
     font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h4{
