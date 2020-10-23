@@ -57,33 +57,33 @@ div.container{
     margin-right: auto;
 }
 
-h1{
+h1, h2, h3, h4 {
     text-align: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
     font-size: 24px;
 }
 
-
 h2{ 
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 17px;
 }
 
-
 h3{
     font-size: 15px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
 }
 
 h4{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 15px;
     margin: 0px;
+}
+
+#query-label{
+    text-align: left;
 }
 
 

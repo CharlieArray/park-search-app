@@ -8,50 +8,72 @@ park names, description, address, and park website.
 function displayResults(data,selectedStates){
 
     //clears out results div for new search results
-    $('#ol-results').empty()
+    $('#ol-results').empty();
 
-        console.log(data)
-        console.log(typeof(data))
+        console.log(data);
+        console.log(typeof(data));
 
-    //Personal Notes on the json data 
+    /*Personal Note on the json data in for loop below:
         //we have an object, inside the object we have an array, 
         //inside the array we have multiple objects
         //inside those multiple objects are the results
-        //{[{key:value}]}
+        //{[{key:value}]}  */
 
     let outputResults = [];
 
     //for loop to iterate through responsed data and push: name, description, website results to HTML
     //pushes results to outputResults array
-    for (let i=0; i<data.data.length;i++){ 
-        outputResults.push(
+    for (let i=0; i<data.data.length;i++){
+        if(data.data[i].addresses[0] !== undefined){
+            outputResults.push(
             `<li><h3>⛰️Park Name: <u>${data.data[i].fullName}</u></h3>
             <p>Description: ${data.data[i].description}</p> 
             <p>🔗 Website: <a href=${data.data[i].url} target="_blank">${data.data[i].fullName}</a></p>
-                <p>📍 Physical Address: ${data.data[i].addresses[0].line1},
-                ${data.data[i].addresses[0].city},
-                ${data.data[i].addresses[0].stateCode},
-                ${data.data[i].addresses[0].postalCode}</p></li>
-            `
+            <p>📍 Physical Address: ${data.data[i].addresses[0].line1},
+            ${data.data[i].addresses[0].city},
+            ${data.data[i].addresses[0].stateCode},
+            ${data.data[i].addresses[0].postalCode}</p></li>`
+            )}
+        else outputResults.push(
+            `<li><h3>⛰️Park Name: <u>${data.data[i].fullName}</u></h3>
+            <p>Description: ${data.data[i].description}</p> 
+            <p>🔗 Website: <a href=${data.data[i].url} target="_blank">${data.data[i].fullName}</a></p>`
         )
-    }
+    };
 
-console.log(`this is output results: ${outputResults}`)
+    console.log(`this is output results: ${outputResults}`);
 
-//call Zoom Out function before appending results
-zoomOut();
+    //call Zoom Out function before appending results
+    zoomOut();
 
-//append results to HTML
-$('#ol-results').append(`<h3>Results for ${selectedStates}🏕️${data.data.length} total national parks found:</h3>`)
-$('#ol-results').append(outputResults);
+    //append results to HTML
+    $('#ol-results').append(`<h3>Results for ${selectedStates}🏕️${data.data.length} total national parks found:</h3>`);
+    $('#ol-results').append(outputResults);
 
 }
 
 
+function formatQueryParams(params) {
+    const queryItems = Object.keys(params)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    return queryItems.join('&');
+  }
+
+
 function getResults(selectedStates, quantity){
 
-    let baseURL= `https://developer.nps.gov/api/v1/parks?`
-    let apiKey= `&api_key=DbVFxURkdXI4bDhTSLA4yFwEbZ86xYO5RpfjQ8f3`
+const baseURL= `https://developer.nps.gov/api/v1/parks`
+const apiKey= `DbVFxURkdXI4bDhTSLA4yFwEbZ86xYO5RpfjQ8f3`
+
+    const params = {
+        stateCode: selectedStates,
+        limit: quantity,
+        api_key: apiKey,
+      };
+      const queryString = formatQueryParams(params)
+      const stringedURL = baseURL + '?' + queryString;
+    
+    /* ALTERNATE METHOD OF STRINGING QUERY PARAMS 
     let stringStatesResults = [];
 
     //if user selects multiple states, this for loop through selected states
@@ -60,9 +82,11 @@ function getResults(selectedStates, quantity){
         stringStatesResults.push(selectedStates[i])
         }
 
-    let stateSearchString = "stateCode="+stringStatesResults;
-    let limitResults = "&limit="+quantity;
-    let stringedURL = baseURL+stateSearchString+limitResults+apiKey;
+    ALTERNATE METHOD OF STRINGING QUERY PARAMS note: some of the var names are different
+        //let stateSearchString = "stateCode="+stringStatesResults;
+        //let limitResults = "&limit="+quantity;
+        //let stringedURL = baseURL+stateSearchString+limitResults+apiKey; */
+
     console.log(`Fetch Request to URL: ${stringedURL}`);
 
     fetch(stringedURL)
