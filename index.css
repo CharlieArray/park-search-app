@@ -5,20 +5,14 @@ body{
     min-width: 300px;
 }
 
-input[type="number"]{
-    font-size: 18;
+input[type='number'],
+  textarea {
+    font-size: 16px;
 }
 
-.fullscreen{
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0px;
-    margin: 0px;
-    overflow-x: hidden;
+select:focus, option,
+textarea {
+  font-size: 16px;
 }
 
 div.container{
@@ -36,12 +30,10 @@ div.container{
 }
 
 .js-search-form{
-    display: flexbox;
+    display: block;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin: 4%;
 }
-
 
 .results{
     display: inline-flex;
@@ -62,6 +54,7 @@ h1, h2, h4 {
     align-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -78,6 +71,8 @@ h3{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 8px;
 }
 
 h4{
