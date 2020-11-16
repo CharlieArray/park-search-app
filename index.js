@@ -20,7 +20,7 @@ function displayResults(data,selectedStates){
         //{[{key:value}]}  */
 
     let outputResults = [];
-
+    
     //for loop to iterate through responsed data and push: name, description, website results to HTML
     //pushes results to outputResults array
     for (let i=0; i<data.data.length;i++){
@@ -60,7 +60,7 @@ function formatQueryParams(params) {
 function getResults(selectedStates, quantity){
 
 const baseURL= `https://developer.nps.gov/api/v1/parks`
-const apiKey= `DbVFxURkdXI4bDhTSLA4yFwEbZ86xYO5RpfjQ8f3`
+const apiKey= `LQh2uobW4mLIbwkte1oYHEBgsLLsvJxhyPxmkYqX`
 
     const params = {
         stateCode: selectedStates,
